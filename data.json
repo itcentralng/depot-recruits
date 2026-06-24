@@ -1,0 +1,23 @@
+{
+  "currentCount": 0,
+  "alumniCount": 0,
+  "passedThroughCount": 0,
+  "current": [
+    {
+      "name": "Current Recruit Placeholder",
+      "meta": "Course placeholder"
+    }
+  ],
+  "alumni": [
+    {
+      "name": "Alumni Placeholder",
+      "meta": "Set placeholder"
+    }
+  ],
+  "passedThrough": [
+    {
+      "name": "Passed Through Placeholder",
+      "meta": "Intake placeholder"
+    }
+  ]
+}

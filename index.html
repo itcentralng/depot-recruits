@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depot Nigerian Army — Recruits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="bg-layer" aria-hidden="true">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/images/nigerian_army_depot_landscape_background_10s.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
+    <div class="brand">
+      <span class="brand-main">NIGERIAN ARMY DEPOT</span>
+      <span class="brand-sub">Osogbo · Recruits Directory</span>
+    </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" id="breadcrumb"></div>
+    <!-- Back button -->
+    <button class="back-btn hidden" id="back-btn" onclick="goBack()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+      Back
+    </button>
+  </nav>
+
+  <!-- ══ SCREEN: HOME ══ -->
+  <div class="screen active" id="screen-home">
+    <div class="home-hero">
+      <h1 class="home-title">Recruits Directory</h1>
+      <p class="home-subtitle">Select a category to browse</p>
+    </div>
+    <div class="home-cards">
+      <button class="home-card" onclick="selectCategory('alumni')">
+        <div class="home-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+          </svg>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-label">Alumni</div>
+          <div class="home-card-meta">Past Intakes</div>
+          <div class="home-card-count" id="home-count-alumni">—</div>
+        </div>
+        <div class="home-card-arrow">›</div>
+      </button>
+
+      <button class="home-card home-card--current" onclick="selectCategory('current')">
+        <div class="home-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <div class="home-card-body">
+          <div class="home-card-label">Current</div>
+          <div class="home-card-meta">90 RRI · Active Intake</div>
+          <div class="home-card-count" id="home-count-current">—</div>
+        </div>
+        <div class="home-card-arrow">›</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ SCREEN: YEAR SELECT (Alumni only) ══ -->
+  <div class="screen" id="screen-year">
+    <div class="screen-header">
+      <h2 class="screen-title">Select Intake Year</h2>
+      <p class="screen-sub">Choose a recruit intake to browse</p>
+    </div>
+    <div class="year-cards" id="year-cards"></div>
+  </div>
+
+  <!-- ══ SCREEN: COMPANY SELECT ══ -->
+  <div class="screen" id="screen-company">
+    <div class="screen-header">
+      <h2 class="screen-title" id="coy-screen-title">Select Company</h2>
+      <p class="screen-sub" id="coy-screen-sub"></p>
+    </div>
+    <div class="company-grid" id="company-grid"></div>
+  </div>
+
+  <!-- ══ SCREEN: RECRUIT LIST ══ -->
+  <div class="screen" id="screen-list">
+    <div class="list-header" id="list-header">
+      <div class="list-header-left">
+        <div class="list-coy-name" id="list-coy-name"></div>
+        <div class="list-coy-meta" id="list-coy-meta"></div>
+      </div>
+      <div class="list-count-badge" id="list-count-badge"></div>
+    </div>
+    <div class="recruit-grid" id="recruit-grid"></div>
+  </div>
+
+  <!-- ══ MODAL ══ -->
+  <div class="modal-overlay hidden" id="modal" onclick="closeModal(event)">
+    <div class="modal-card glass-panel">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-photo-frame">
+        <img id="modal-photo" src="assets/images/military-silhouette.png" alt="">
+        <div class="modal-photo-shine" aria-hidden="true"></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-badge" id="modal-badge"></div>
+        <div class="modal-rank">RECRUIT</div>
+        <h2 class="modal-name" id="modal-name"></h2>
+        <div class="modal-depot" id="modal-depot"></div>
+        <div class="modal-coy-row" id="modal-coy-row"></div>
+        <div class="modal-remarks" id="modal-remarks"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
