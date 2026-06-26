@@ -462,3 +462,24 @@ html, body {
   font-family: var(--f-serif); font-size: 0.98rem;
   color: rgba(220,188,120,0.65); font-style: italic; margin-top: 6px;
 }
+
+/* ── Kiosk close button ── */
+.kiosk-close {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(8,12,10,0.60);
+  border: 1px solid rgba(166,124,62,0.28);
+  color: rgba(240,232,218,0.45);
+  cursor: pointer; display: grid; place-items: center;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  z-index: 210;
+}
+.kiosk-close svg { width: 18px; height: 18px; }
+.kiosk-close:hover {
+  color: rgba(240,232,218,0.85);
+  border-color: rgba(166,124,62,0.60);
+  background: rgba(30,12,12,0.70);
+}
