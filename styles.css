@@ -483,3 +483,97 @@ html, body {
   border-color: rgba(166,124,62,0.60);
   background: rgba(30,12,12,0.70);
 }
+
+/* ── Photobook pages ── */
+.photobook-page {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.page-label {
+  font-size: 12px;
+  color: var(--gold-dim);
+  text-align: right;
+  padding: 0 4px 5px;
+  font-family: var(--f-ui);
+  letter-spacing: 0.05em;
+}
+.page-img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--gold-line);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.page-img:hover { border-color: var(--gold-dim); }
+
+/* ── Photobook lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(4, 6, 5, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.hidden { display: none; }
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.7);
+  display: block;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: rgba(8,12,10,0.7);
+  border: 1px solid rgba(166,124,62,0.35);
+  color: rgba(240,232,218,0.7);
+  font-size: 28px;
+  line-height: 1;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: color 0.15s, border-color 0.15s;
+  z-index: 510;
+}
+.lightbox-close:hover { color: var(--gold); border-color: var(--gold); }
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(8,12,10,0.65);
+  border: 1px solid rgba(166,124,62,0.30);
+  color: rgba(240,232,218,0.75);
+  font-size: 36px;
+  line-height: 1;
+  width: 52px; height: 72px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  z-index: 510;
+  user-select: none;
+}
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+.lightbox-prev:hover,
+.lightbox-next:hover { color: var(--gold); border-color: var(--gold-dim); background: rgba(30,20,8,0.80); }
+.lightbox-prev:disabled,
+.lightbox-next:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%; transform: translateX(-50%);
+  font-family: var(--f-ui);
+  font-size: 13px;
+  color: var(--gold-dim);
+  letter-spacing: 0.06em;
+  background: rgba(4,6,5,0.6);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
